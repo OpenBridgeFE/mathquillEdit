@@ -1,0 +1,81 @@
+@charset "utf-8";
+.table-bordered td {
+    padding: 3px 3px;
+    min-width: 63px;
+}
+.form-top {
+    margin-bottom: 20px;
+}
+.top {
+    margin-bottom: 35px;
+}
+.table-form tbody tr td {
+    padding: 1px;
+}
+.fw-600 {
+    font-weight: 600;
+}
+.diam {
+    font-size: 18px;
+    width: 27px;
+    height: 27px;
+    display: inline-block;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+.icon {
+    padding: 0 3px;
+    width: 26px;
+    height: 27px;
+    text-align: center;
+    line-height: 25px;
+    display: inline-block;
+    cursor: pointer;
+}
+.no-select-text {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+#headTable, #mainTable {
+    width: 100%;
+}
+#mainTable td {
+    width: 6%;
+    border-top: 0px;
+}
+#headTable td {
+    width: 6%;
+}
+#info {
+    background:#eee;
+    border: 1px solid #eee;
+    width:100px;
+    height:30px;
+    position:absolute;
+    top:0;
+    left:0;
+    display:none;
+}
+.arrow {
+    width: 10px;
+    height: 10px;
+    position: relative;
+}
+#triangle {
+    display:none;
+    position:absolute;
+    top:0px;
+    left:4px;
+}
+
+.inline-block {
+    display: inline-block;
+}
+ul > li {
+    margin-bottom: 8px;
+}
+
+#span {
+    padding: 0px 10px;
+}

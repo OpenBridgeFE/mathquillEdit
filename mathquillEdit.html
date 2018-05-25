@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">-->
+    <title>公式编辑器</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- Basic Styles -->
+    <link rel="stylesheet" href="./bootstrap/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/layout.css">
+    <link rel="stylesheet" href="./css/groups.css">
+    <link rel="stylesheet" href="./MathquillBasedEditor/lib/mathquill.css">
+    <!--更多查询条件-->
+    <script type="text/javascript" src="./js/jquery-1.8.3.min.js"></script>
+    <script src="./MathquillBasedEditor/lib/mathquill.min.js"></script>
+    <style>
+        .com-div {
+            width: 75%;
+            
+        }
+        #answer {
+            width: 30%;
+            height: 50px;
+            border: 1px solid #ccc;
+            float: left;
+        }
+        .quil-form li {
+            border: 1px solid #cfcfcf;
+            float: left;
+            position: relative;
+            width: 15%;
+            height: 65px;
+            text-align: center;
+            line-height: 65px;  
+            cursor: pointer;   
+            margin: 1px; 
+            background: #f5f5f5;
+        }
+        .quil-form li:hover {
+            color: #3276b1;
+            background: #fbfbfb;
+        }
+        .com-div ul li {
+            margin: 1px;
+        }
+        .ripple {
+            position: relative;
+            overflow: hidden;
+        }
+        .ripple:after {
+            content: "";
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            background-image: radial-gradient(circle, #666 10%, transparent 10.01%);
+            background-repeat: no-repeat;
+            background-position: 50%;
+            transform: scale(10, 10);
+            opacity: 0;
+            transition: transform .3s, opacity .5s;
+        }
+
+        .ripple:active:after {
+            transform: scale(0, 0);
+            opacity: .3;
+            transition: 0s;
+        }
+    </style>
+</head>
+<body>
+    <div class="iframe-cot" >
+        <div class="quil-form mt0 border">
+            <div style="margin:0 0 6px 15px">常用公式</div>
+            <div class="ml25 com-div" style="float: left;">
+                <ul>
+                    <li class="ripple">求和<span  id="problem1">\sum_ { y }^{ x }</span></li>
+                    <li class="ripple">绝对值<span id="problem2">\left| \MathQuillMathField{x} \right|</span></li>
+                    <li class="ripple">平均值<span id="problem3">\overline {\MathQuillMathField{x}}</span></li>
+                    <li class="ripple">最小值<span id="problem4">\min {\MathQuillMathField{x}}</span></li>
+                    <li class="ripple">开根号<span id="problem5">\sqrt {\MathQuillMathField{x}} </span></li>
+                    <li class="ripple">平方<span id="problem6">{\MathQuillMathField{x}} ^2 </span></li>
+                    <li class="ripple">立方<span id="problem7">{\MathQuillMathField{x}} ^3 </span></li>
+                    <li class="ripple">加号<span id="problem8">+ </span></li>
+                    <li class="ripple">减号<span id="problem9">- </span></li>
+                    <li class="ripple">乘号<span id="problem10">\times </span></li>
+                    <li class="ripple">除号<span id="problem11">\div </span></li>
+                    <li class="ripple">最大值<span id="problem12">\max {\MathQuillMathField{x}}</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="ml25" style="margin-top: 12%;">
+            <div style="margin-bottom: 6px;">请输入公式：</div>
+            <p style="   height: 50px; "><span id="answer"></span><button  id="confirm" class="btn btn-blue" style="float: left; height: 100%; margin-left: 5px">确认公式</button></p>
+            <div style="float: left; margin-top: 5px; display: none;" id="reInput">请输入正确公式!</div>
+        </div>
+        <div style="margin: 30px 0 0 15px;"> 
+            <button class="btn btn-orange"><i class="fa 
+                +++fa-save mr5"></i>保存</button>
+            <button class="btn btn-default"><i class="fa fa-times mr5"></i>取消</button>
+        </div>
+        <!-- <div class="right-form mt0 border ml25 mt10 com-div">
+            <table class="table-form table-bordered table-hover table-ellipsis tb-text-blue">
+                <thead>
+                    <tr>
+                        <th>
+                            变量
+                        </th>
+                        <th>
+                            代表字段
+                        </th>
+                        <th style="width:11%">
+                            <i class="fa addTr fa-plus mr10 text-blue ml5"></i>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <input name="sendWay" class="inputText" value="" type="text" placeholder="2" style="width: 100%">
+                        </td>
+                        <td>
+                            <select class="form-control-select" value="" style="width: 100%">
+                                <option active="1">编号</option>
+                                <option active="1">比色槽</option>
+                                <option active="1">色泽（黄）</option>
+                                <option active="1">色泽（红）</option>
+                                <option active="1">色泽（蓝）</option>
+                                <option active="1">色泽（白）</option>
+                            </select>
+                        </td>
+                        <td>
+                            <i class="fa delTr fa-minus mr10 text-blue ml5"></i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div> -->
+    </div>
+    <script src="js/common.js"></script>
+</body>
+</html>
+<script>
+
+    $(function () {
+        var MQ = MathQuill.getInterface(2); // 加载MathQuill
+        var htmlElement = document.getElementById('answer'); //获取公式输入框节点
+        var config = {
+            handlers: {
+                edit: function () {
+                    var enteredMath = mathField.latex(); // 获取输入的数字公式并进行格式化
+                    //checkAnswer(enteredMath);
+                }
+            },
+            restrictMismatchedBrackets: true
+        }
+        var mathField = MQ.MathField(htmlElement, config);
+        
+        function createFunctions() {
+            for (var i = 0; i <= $(".iframe-cot ul li").length; i++) {
+
+                $(".iframe-cot ul li").eq(i).on('click', function () {
+
+                    var gongshi = $(this).find('.mq-selectable').text();
+                    var regx = new RegExp("(^\\$*)|(\\$*$)", "g");
+                    mathField.write(gongshi.replace(regx, ""))
+                    mathField.latex();
+                })
+                MQ.StaticMath(document.getElementById("problem" + i));  // 加载静态公式
+            }
+            $("#confirm").on('click', function(){
+                console.log(mathField.latex())
+                console.log(fn(mathField.latex()));
+                if(fn(mathField.latex()) == true) {
+                    console.log("公式输入正确");
+                    $("#reInput").text("公式输入正确").show().css('color','blue');
+                } else {
+                    $("#reInput").text("公式输入错误!").show().css('color','red');
+                }
+            })
+        }
+
+        createFunctions();
+
+      
+
+        /* 
+        * 假如待选变量：  ID,NUM,TOTAL，AVL TEST 
+        * 正确的公式例子：ID*NUM+(TOTAL/AVL)*0.5  
+        * 错误的公式例子：ID**|0.5 
+        */  
+    
+        function fn(string){// TODO: 如何处理=？  
+            // 剔除空白符  
+            string = string.replace(/\s/g, '');  
+            
+            // 错误情况，空字符串  
+            if("" === string){  
+                return false;  
+            }  
+            
+            // 错误情况，运算符连续  
+            if( /[\+\-\\times\\div$]\1/.test(string)){  
+                return false;  
+            }  
+            
+            // 错误情况，连个字符连续重复
+            if(/([a-zA-Z])\1/.test(string)) {
+                return false;  
+            }
+            // // 空括号  
+            // if(/(^\(+)|(\)+)/.test(string)){  
+            //     return false;  
+            // }  
+            
+            // 错误情况，括号不配对  
+            var stack = [];  
+            for(var i = 0, item; i < string.length; i++){  
+                item = string.charAt(i);  
+                if('(' === item){  
+                    stack.push('(');  
+                }else if(')' === item){  
+                    if(stack.length > 0){  
+                        stack.pop();  
+                    }else{  
+                        return false;  
+                    }  
+                }  
+            }  
+            if(0 !== stack.length){  
+                return false;  
+            }  
+            
+            // 错误情况，(后面是运算符   
+            if(/\([\+\-\*\/]/.test(string)){  
+                return false;  
+            }  
+            
+            // 错误情况，)前面是运算符  
+            if(/[\+\-\*\/]\)/.test(string)){  
+                return false;  
+            }  
+            
+            // 错误情况，(前面不是运算符  
+            if(/[^\+\-\*\/]\(/.test(string)){  
+                return false;  
+            }  
+            
+            // 错误情况，)后面不是运算符  
+            if(/\)[^\+\-\*\/]/.test(string)){  
+                return false;  
+            }    
+            
+            return true;  
+        }  
+        
+    
+    })
+</script>

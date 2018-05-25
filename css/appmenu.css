@@ -1,0 +1,87 @@
+/*左侧菜单栏*/
+.main{
+    padding: 0px;
+    position: relative;
+}
+.left-menu{
+    position:relative;
+    width:200px;
+    height:100%;
+    overflow: hidden;
+    float:left;
+    margin-right:11px;
+    border-top: 1px solid #008FC6;
+    border-right: 1px solid #e6e9f0;
+    background: #fff
+}
+.main .pull-right{
+    float: right
+}
+.left-menu .nav-list0 a{
+    display:block;
+    width:100%;
+    height: 50px;
+    color: #333;
+}
+.left-menu .nav-list0>li{
+    border-bottom: 1px solid #E5E5E5
+}
+.left-menu .nav-list0>li>span{
+    background: #F2F2F2;
+}
+.left-menu .menu-caret{
+    position: absolute;
+    top:16px;
+    right:12px;
+    z-index: 10;
+    color: #3894C9;
+}
+.left-menu .menu-caret.fa-angle-down{
+    right:8px;
+}
+.left-menu .nav-list0 span{
+    height: 50px;
+    line-height: 50px;
+    overflow: hidden;
+    white-space: nowrap;
+    color:#536A8C;
+    display:block; }
+.left-menu .nav-list0 span:hover{
+    cursor:pointer;
+    color: #0172D2
+}
+.left-menu .nav-list0 a{
+    height: 50px;
+    line-height: 50px;
+    color: #536A8C;
+    border-left: 3px solid  transparent;
+}
+.menu-nav{
+    position:fixed;
+    top: 155px;
+    left:235px;
+    display: inline-block;
+    width:25px;
+    z-index: 999;
+}
+.left-menu .nav-list0 li a:hover{
+    color:#0172D2
+}
+.left-menu .nav-list0 a.active{
+    background: #EFF8FA;
+    border-left:3px solid #0070D2;
+    color:#0172D2
+}
+.left-menu .nav-list0>li li a:hover{
+    background: #E3F7FC;
+    color:#0172D2
+}
+.menu-nav:hover{
+    cursor:pointer;
+}
+.crumbs span.noBorBot{
+    border-bottom: transparent
+}
+.border-bottom{
+    border-bottom:1px solid #E5E5E5;
+}
